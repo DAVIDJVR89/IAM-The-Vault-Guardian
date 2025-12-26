@@ -15,19 +15,45 @@ This project simulates a fundamental security control: the **Account Lockout Pol
 
 ### 🔍 Code Highlights & Logic
 This script processes security access in two distinct phases:
-1. **User Identification:** The script ensures the user exists before prompting for a password.
-2. **Credential Validation & Lockout:**
 
-# First, we have to create the counter
+# **User Identification:** 
+
+**The script ensures the user exists before prompting for a password.**
+
+
+If the input is different from usuario_correcto, using "continue" the script runs an infinite loop for the username input until it matches the record:
+
+    while True:
+        usuario_entrada = input(f"Introduzca su usuario:  ")
+        if usuario_entrada != usuario_correcto:
+            print("Usuario no válido, intente de nuevo.  ")
+            continue
+
+Once the previous condition does not occur and the input (usuario_entrada) matches with the correct one, the username will be identified and the script will proceed with the password validation.
+
+        else:
+            print("Usuario correcto.")
+
+
+
+# **Credential Validation & Lockout:**
+
+**First, we have to create the counter**
+
        while intentos_restantes > 0:
-# We can calculate the current attempt number (1, 2, or 3) 
-       intentos_actuales = max_intentos - intentos_restantes + 1   
-# If the password is correct, access is granted and the script ends
+       
+**We can calculate the current attempt number (1, 2, or 3)**
+
+       intentos_actuales = max_intentos - intentos_restantes + 1  
+       
+**If the password is correct, access is granted and the script ends**
+
        if entrada_contraseña == contraseña_correcta:
            print("ACCESO AUTORIZADO")
            exit()
    
-# If it fails, the counter decreases until it arrives to the third attempt. In the script, we will find this situation with the last "else": 
+**If it fails, the counter decreases until it arrives to the third attempt. In the script, we will find this situation with the last "else":**
+
        else:
            intentos_restantes -= 1
             if intentos_restantes > 0:
@@ -36,7 +62,8 @@ This script processes security access in two distinct phases:
             else:
                 print(f"Máximo de intentos superados. Cuenta bloqueada por seguridad.")
                 exit()
- 4. **Session Hardening:¨¨ Once intentos_restantes reaches zero, the exit() function prevents any further interaction, simulating a blocked account status.
+                
+**Once intentos_restantes reaches zero, the exit() function prevents any further interaction, simulating a blocked account status.**
   
 ---
 
