@@ -6,7 +6,7 @@
 
 This project documents my journey from understanding basic Python logic to implementing a functional cybersecurity tool. It demonstrates how a simple script can evolve into a practical security auditing tool when applied to a real-world environment.
 
-
+---
 
 **🛠 Phase 1: The Initial Logic (Conceptual Study)**
 
@@ -15,7 +15,7 @@ My goal: To understand how a loop could iterate through a list of strings to fin
 
 **Result:** A successful "proof of concept" that validated the logic of automated password guessing.
 
-
+---
 
 **🚀 Phase 2:  Real-World Application (The Virtual Lab)**
 
@@ -25,7 +25,7 @@ After mastering the logic, I wanted to see how it would perform in a live enviro
 - **Victim:** Kali Linux Virtual Machine with the SSH service active.
 - **Connectivity:** I configured the VM's network to Bridge Mode. This was crucial to allow direct **IP** communication between the host and the guest, moving past initial "Connection Timed Out" obstacles.
 
-
+---
 
 
 **💻 Code Evolution & Features**
@@ -37,7 +37,7 @@ To make the script work against a real server, I integrated the **Paramiko** lib
 - try/except blocks: Vital for error handling; they allow the script to record a "failed attempt" and continue with the next password instead of crashing upon authentication failure.
 - Timeouts: Implemented to manage network latency and improve script efficiency.
 
-
+---
 
 **📊 Results & Security Insights**
 
@@ -51,7 +51,7 @@ The script successfully identified the correct password (kali) within seconds. T
     - MFA (Multi-Factor Authentication): Adding an extra layer of defense.
 
 
-
+---
 
 **🧹 Lab Maintenance (Administrative Note)**
 Following best practices for system administration, the environment was cleaned after the exercise:
