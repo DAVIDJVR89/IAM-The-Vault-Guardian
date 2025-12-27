@@ -27,7 +27,7 @@ def login():
     else:
         print("El usuario no existe.")
 
-# --- AQUÍ ESTÁ EL MENÚ INTERACTIVO ---
+# --- INTERACTIVE MENU ---
 
 while True:
     print("\n========= MI SISTEMA SEGURO =========")
@@ -50,3 +50,4 @@ while True:
     else:
 
         print("Opción no válida, intenta de nuevo.")
+
