@@ -1,4 +1,7 @@
 import hashlib
+import string
+
+symbols = string.punctuation
 
 data_base = {}
 
@@ -8,9 +11,37 @@ def create_hash(password):
 
 def create_user():
     user = input("Insert your username: ")
-    password = input("Insert your password: ")
-    data_base[user] = create_hash(password)
-    print("User created.")
+    print("Username accepted.")
+    print("--"*30)
+
+    while True:
+        password = input("Insert your password (should have at least one symbol, one number and one capital letter): ")
+        print("--"*30)
+        
+        
+        has_capital = False
+        has_number = False
+        has_symbol = False
+
+        for caracter in password:
+            if caracter.isupper():
+                has_capital = True
+            if caracter.isdigit():
+                has_number = True
+            if caracter in symbols:
+                has_symbol = True
+        
+        if has_capital and has_number and has_symbol:
+            data_base[user] = create_hash(password)
+            print("Password accepted.")
+            print("--"*30)
+            print(f"User {user} and password successfully created.")
+            print("--"*30)
+            break
+        else:
+            print("ERROR: The password should have at least one capital letter, one number and one symbol.")
+            print("--"*30)
+
 
     
 def login():
@@ -42,8 +73,14 @@ def login():
             remaining = try_max - tries
             if remaining > 0:
                 print(f"Wrong password. You have {remaining} tries left.")
+                print("--"*30)
             else:
+                print("--"*30)
                 print("Maximum attempts exceeded. Your account has been blocked for security reasons.")
+                print("--"*30)
+                print("You can try again in 30 minutes.")
+                print("--"*30)
+                exit()
                 
                 
 while True:
@@ -54,6 +91,7 @@ while True:
     print("4. Exit")
 
     option = input("Please, select one of the options (1-4): ")
+    print("--"*30)
 
     if option == "1":
         create_user()
@@ -67,5 +105,3 @@ while True:
     else:
         print("Wrong option, please try again.")
         break
-
-
