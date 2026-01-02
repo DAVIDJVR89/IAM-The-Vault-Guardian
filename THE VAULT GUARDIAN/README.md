@@ -79,12 +79,6 @@ I have upgraded the authentication engine to include two critical security layer
 * **The Logic:** A login attempt counter has been implemented. If the user exceeds the maximum allowed attempts, the system denies further access.
 * **IAM Impact:** This is a fundamental defense mechanism against **Brute Force** and **Dictionary Attacks**. It prevents automated scripts from guessing passwords by enforcing a lockout period, significantly reducing the attack surface.
 
-## 🛠️ Key IAM Concepts Applied
-
-* **Authentication:** Robust identity verification.
-* **Availability:** Preventing service exhaustion by blocking malicious actors.
-* **Security Best Practices:** Implementing "Fail-Safe" mechanisms to protect user credentials.
-
 ---
 
 ![](https://img.shields.io/badge/SECURITY-UPGRADED-green?style=for-the-badge&logo=github)
@@ -107,6 +101,7 @@ The system now enforces a strict policy where every password must contain at lea
 
 ### 4. Secure Hashing (SHA-256)
 * Credentials are never stored in plain text. The system uses the `hashlib` library to generate and store secure SHA-256 hashes.
+
   
 
 ## 🧠 Technical Logic: For Loop & Flag System
@@ -127,7 +122,17 @@ As the loop processes each character, it uses conditional statements (`if`) to c
 
 ### 3. The Final Validation
 The final security check occurs **outside** the loop. The system only grants access if all three flags are `True`. This ensures the entire password has been evaluated against the IAM policy before any hash is generated or any user is created.
-* 
 
 ---
 
+## 🛠️ Key IAM Concepts Applied
+
+* **Authentication:** Robust identity verification.
+* **Availability:** Preventing service exhaustion by blocking malicious actors.
+* **Security Best Practices:** Implementing "Fail-Safe" mechanisms to protect user credentials.
+
+
+---
+
+
+*Developed as part of a Cybersecurity & IAM learning path.*
